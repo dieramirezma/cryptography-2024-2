@@ -43,14 +43,15 @@ if __name__ == '__main__':
     print("Select an option: \n1. Encrypt\n2. Decrypt")
     option = int(input("Enter your choice: "))
     if option == 1:
-      message = input("Enter the message: ").upper()
+      message = input("Enter the message: ").upper().replace(" ", "")
+      print("Message: ", message)
       key = generateKey(len(message))
       print("Key: ", key)
       cipher_text = encrypt(message, key)
       print("Cipher text: ", cipher_text)
     elif option == 2:
-      cipher_text = input("Enter the cipher text: ")
-      key = input("Enter the key: ")
+      cipher_text = input("Enter the cipher text: ").replace(" ", "")
+      key = input("Enter the key: ").replace(" ", "")
       plain_text = decrypt(cipher_text, key)
       print("Plain text: ", plain_text)
     else:
